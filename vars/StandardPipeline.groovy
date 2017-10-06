@@ -44,8 +44,11 @@ stage('JaCoCo') {
 stage("Findbugs & Checkstyle & PMD") {
   echo 'Publishing FindBugs report..'
 }
- stage('Nexus Upload') {
+stage('Nexus Upload') {
   echo 'Uploading Artifacts to Nexus'
+}
+stage('archiveArtifacts') {
+    archiveArtifacts 'target/*.jar'
 }
 }
 }
